@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  app-gestion-couriel-api:
+    image: diambarsene/gestion-couriel-api-v1:v1 #nom-image-utilisateur:version
+    restart: always
+    ports:
+      - "8087:8087"
+    volumes:
+      - couriel-filePdf:/static/pdfFiles
+    environment:
+      - SPRING_PROFILES_ACTIVE=production
+      #SPRING_DATASOURCE_URL: jdbc:mysql://db_users_api:3306/Jcaisse_users
+      #SPRING_DATASOURCE_USERNAME: root
+      #SPRING_DATASOURCE_PASSWORD: sene
+    depends_on:
+      - db_couriel_api
+    networks:
+      - networks-gestion-couriel
+
+  db_couriel_api:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: sene
+      MYSQL_DATABASE: gestion_couriels
+      MYSQL_USER: sene
+      MYSQL_PASSWORD: sene
+    ports:
+      - "3306:3306"
+    volumes:
+      - gestion-couriel-db-data:/var/lib/mysql
+    networks:
+      - networks-gestion-couriel
+
+volumes:
+  gestion-couriel-db-data:
+  couriel-filePdf:
+
+networks:
+  networks-gestion-couriel:
+    driver: bridge

@@ -1,0 +1,82 @@
+//package sn.yaatout.gestionCouriel.api.services.impl;
+//
+//import lombok.RequiredArgsConstructor;
+//import lombok.extern.slf4j.Slf4j;
+//import org.springframework.stereotype.Service;
+//import sn.yaatout.gestionCouriel.api.models.CategoryDto;
+//import sn.yaatout.gestionCouriel.api.models.CourielDto;
+//import sn.yaatout.gestionCouriel.api.models.ErrorDto;
+//import sn.yaatout.gestionCouriel.api.repository.CategoryRepository;
+//import sn.yaatout.gestionCouriel.api.repository.CourielRepository;
+//
+//
+//import java.time.LocalDate;
+//import java.time.format.DateTimeFormatter;
+//import java.util.List;
+//
+//@Slf4j
+//@RequiredArgsConstructor
+//@Service
+//public class CourielServiceImpl implements ICourielService {
+//
+//    private final CourielRepository repository;
+//    private final CourielMapper courielMapper;
+//    private final CategoryRepository categoryRepository;
+//
+//    @Override
+//    public Couriel addCouriel(Couriel couriel) {
+//        CourielDto courielDto = courielMapper.toCourielDto(couriel);
+//        CategoryDto categoryDto = categoryRepository.findByNom(couriel.getCategorieNom());
+//        courielDto.setCategorie(categoryDto);
+//        courielDto.setDateCreation(LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+//        repository.save(courielDto);
+//        return courielMapper.toCouriel(courielDto);
+//    }
+//    @Override
+//    public List<Couriel> getAllCouriels() {
+//        return courielMapper.toListCouriel(repository.findAll());
+//    }
+//
+//    @Override
+//    public List<Couriel> findCourrielsToday() {
+//        return courielMapper.toListCouriel(repository.findCourrielsToday());
+//    }
+//
+//    @Override
+//    public List<Couriel> findCourrielsNotToday() {
+//        return courielMapper.toListCouriel(repository.findCourrielsNotToday());
+//    }
+//
+//    @Override
+//    public Couriel updateCouriel(Couriel couriel) {
+//        CourielDto courielDto = repository.findByid(couriel.getId());
+//        if(courielDto == null){
+//            new ErrorDto("ROle n'existe pas");
+//            return null;
+//        }else {
+//            courielDto.setNom(couriel.getNom());
+//            courielDto.setDateCreation(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+//            courielDto.setDescription(couriel.getDescription());
+//            courielDto.setTypeCouriel(couriel.getTypeCouriel());
+//            repository.save(courielDto);
+//            return courielMapper.toCouriel(courielDto);
+//        }
+//    }
+//    @Override
+//    public List<Couriel> getAllCourielByUser(Long userId) {
+//        return courielMapper.toListCouriel(repository.findAllByid(userId));
+//    }
+//
+//    @Override
+//    public void deleteCouriel(Long courielId) {
+//       repository.deleteById(courielId);
+//    }
+//
+//    @Override
+//    public Couriel getCourielById(Long courielId) {
+//
+//        return courielMapper.toCouriel(repository.findByid(courielId));
+//    }
+//
+//
+//}

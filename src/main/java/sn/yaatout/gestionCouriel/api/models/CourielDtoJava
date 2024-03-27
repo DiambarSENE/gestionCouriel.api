@@ -1,0 +1,40 @@
+//package sn.yaatout.gestionCouriel.api.models;
+//
+//import jakarta.persistence.*;
+//import lombok.AllArgsConstructor;
+//import lombok.Builder;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
+//import org.springframework.core.io.Resource;
+//
+//
+//@Entity
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Data
+//@Table(name = "tb_couriels")
+//@Builder
+//public class CourielDto {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    public Long id;
+//    @Column(name = "nom")
+//    public String nom;
+//    @Column(name = "description")
+//    public String description;
+//    @Column(name = "typeCouriel")
+//    public String typeCouriel;
+//    @ManyToOne
+//    @JoinColumn(name = "categorie_id")
+//    public CategoryDto categorie;
+//    @Column(name = "dateCreation")
+//    public String dateCreation;
+//    @Column(name = "filePdf")
+//    public String filePdf;
+//
+//       //@Lob
+//    //private byte[] imageData;
+//    //@Lob
+//    //@Column(columnDefinition = "MEDIUMBLOB")
+//
+//}

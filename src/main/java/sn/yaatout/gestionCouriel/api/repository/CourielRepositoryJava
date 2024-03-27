@@ -1,0 +1,28 @@
+//package sn.yaatout.gestionCouriel.api.repository;
+//
+//import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.data.jpa.repository.Query;
+//import sn.yaatout.gestionCouriel.api.models.CourielDto;
+//import sn.yaatout.gestionCouriel.api.models.RoleDto;
+//
+//import java.time.LocalDate;
+//import java.time.format.DateTimeFormatter;
+//import java.util.List;
+//
+//public interface CourielRepository extends JpaRepository<CourielDto, Long> {
+//    @Query(value = "SELECT * FROM tb_couriels c WHERE c.user_id = ?1",nativeQuery = true)
+//    List<CourielDto> findAllByid(Long id);
+//    @Query(value = "SELECT * FROM tb_couriels c WHERE c.id = ?1",nativeQuery = true)
+//    CourielDto findByid(Long id);
+//
+////    @Query(value = "SELECT * FROM tb_couriels c WHERE DATE(c.dateNow) = CURDATE()", nativeQuery = true)
+//
+//    @Query(value = "SELECT * FROM tb_couriels c WHERE c.date_creation = CURDATE()", nativeQuery = true)
+//    List<CourielDto> findCourrielsToday();
+//
+//    @Query(value = "SELECT * FROM tb_couriels c WHERE c.date_creation != CURDATE()", nativeQuery = true)
+//    List<CourielDto> findCourrielsNotToday();
+//
+//
+//
+//}
